@@ -17,3 +17,15 @@ Made by Vuxaer
 4th coding session - 23/03, 11:23
 - Finished up the help pages
 - Implemented /parkour settp <name>
+
+5th coding session - 24/03, 22:26
+- Implemented /parkour tp <name>
+- Added TabCompleters
+- Implemented /parkour list
+- Implemented /parkour setstart,setend <name>
+- Experimented with placing / removing blocks automatically
+
+TO DO: 
+- Move TabCompleters to single TabCompleter class
+- Make pressure plates unbreakable and delete when removing parkour
+- Add getters for spawn, start and end

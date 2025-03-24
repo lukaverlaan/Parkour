@@ -17,6 +17,10 @@ public class CreateParkourCommand {
 	public void addToConfig(Player p, String name) {
 		ConfigurationSection parkoursSection = parkour.getConfig().getConfigurationSection("parkours");
 		
+		if (parkoursSection == null) {
+	        parkoursSection = parkour.getConfig().createSection("parkours");
+	    }
+		
 		if (parkoursSection.contains(name)) {
 			p.sendMessage(ChatColor.RED + "The parkour '" + ChatColor.WHITE + name + ChatColor.RED + "' already exists.");
 			return;

@@ -1,5 +1,8 @@
-C:\Users\Luka\Documents\WorkspaceJAVA\Parkour\src\main\java\me\vuxaer\commands\CreateParkourCommand.java
-C:\Users\Luka\Documents\WorkspaceJAVA\Parkour\src\main\java\me\vuxaer\commands\ParkourCommand.java
-C:\Users\Luka\Documents\WorkspaceJAVA\Parkour\src\main\java\me\vuxaer\commands\RemoveParkourCommand.java
-C:\Users\Luka\Documents\WorkspaceJAVA\Parkour\src\main\java\me\vuxaer\commands\SetTeleportParkourCommand.java
-C:\Users\Luka\Documents\WorkspaceJAVA\Parkour\src\main\java\me\vuxaer\main\Parkour.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\CreateParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\ListParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\ParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\RemoveParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\SetSpawnParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\StartEndParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\commands\TeleportParkourCommand.java
+E:\HOGent\OOSD1\WorkspaceSDP1\Parkour\src\main\java\me\vuxaer\main\Parkour.java

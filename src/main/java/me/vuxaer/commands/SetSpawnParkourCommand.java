@@ -1,15 +1,22 @@
 package me.vuxaer.commands;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 import me.vuxaer.main.Parkour;
 import net.md_5.bungee.api.ChatColor;
 
-public class SetTeleportParkourCommand {
+public class SetSpawnParkourCommand implements TabCompleter {
 	private Parkour parkour;
 	
-	public SetTeleportParkourCommand(Parkour parkour) {
+	public SetSpawnParkourCommand(Parkour parkour) {
 		this.parkour = parkour;
 	}
 	
@@ -24,5 +31,16 @@ public class SetTeleportParkourCommand {
 		parkour.getConfig().set("parkours." + name + ".spawn", p.getLocation());
 		parkour.saveConfig();
 		p.sendMessage(ChatColor.GREEN + "Successfully set the parkour spawn location for '" + ChatColor.WHITE + name + ChatColor.GREEN + "'.");
+	}
+
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+	    if (args.length == 2) {
+	        ConfigurationSection section = parkour.getConfig().getConfigurationSection("parkours");
+	        if (section != null) {
+	            return new ArrayList<>(section.getKeys(false)); // Return list of parkour names
+	        }
+	    }
+	    return Collections.emptyList(); // Return an empty list to prevent default behavior (player names)
 	}
 }
