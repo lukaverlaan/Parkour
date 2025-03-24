@@ -1,0 +1,19 @@
+--------------------
+SimpleParkour v1.0
+Made by Vuxaer
+--------------------
+
+1st coding session
+- Made /parkour, /parkour help and /parkour help 2
+
+2nd coding session
+- Added /parkour create, remove, setstart, setend, settp, /parkour list, /parkour tp and /parkour score to the help pages
+- Started implementing /parkour create <name>
+
+3rd coding session
+- Implemented /parkour create <name> and /parkour remove <name>
+- Configuration file working as well
+
+4th coding session - 23/03, 11:23
+- Finished up the help pages
+- Implemented /parkour settp <name>

@@ -1,0 +1,5 @@
+me\vuxaer\commands\SetTeleportParkourCommand.class
+me\vuxaer\commands\RemoveParkourCommand.class
+me\vuxaer\commands\CreateParkourCommand.class
+me\vuxaer\main\Parkour.class
+me\vuxaer\commands\ParkourCommand.class

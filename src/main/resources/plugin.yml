@@ -1,0 +1,11 @@
+name: SimpleParkour
+version: 1.0
+api-version: 1.21
+author: Vuxaer
+description: A simple plugin that allows players to set up their custom parkour
+
+main: me.vuxaer.main.Parkour
+
+commands:
+  parkour:
+    description: Gives an overview of all Parkour commands
