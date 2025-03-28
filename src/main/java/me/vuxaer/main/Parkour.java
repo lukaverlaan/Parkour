@@ -9,6 +9,8 @@ import me.vuxaer.commands.RemoveParkourCommand;
 import me.vuxaer.commands.SetSpawnParkourCommand;
 import me.vuxaer.commands.StartEndParkourCommand;
 import me.vuxaer.commands.TeleportParkourCommand;
+import me.vuxaer.listeners.StartEndBreakListener;
+import me.vuxaer.listeners.StartEndInteractionListener;
 
 public class Parkour extends JavaPlugin {
 	
@@ -22,6 +24,10 @@ public class Parkour extends JavaPlugin {
 		this.getCommand("parkour").setTabCompleter(new SetSpawnParkourCommand(this));
 		this.getCommand("parkour").setTabCompleter(new RemoveParkourCommand(this));
 		this.getCommand("parkour").setTabCompleter(new StartEndParkourCommand(this));
+		
+		// Listeners
+		this.getServer().getPluginManager().registerEvents(new StartEndBreakListener(this), this);
+		this.getServer().getPluginManager().registerEvents(new StartEndInteractionListener(this), this);
 	}
 	
 	public void onDisable() {

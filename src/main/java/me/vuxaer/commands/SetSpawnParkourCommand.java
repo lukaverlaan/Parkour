@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -21,16 +22,29 @@ public class SetSpawnParkourCommand implements TabCompleter {
 	}
 	
 	public void setTeleport(Player p, String name) {
-		ConfigurationSection parkoursSection = parkour.getConfig().getConfigurationSection("parkours");
-		
-		if (parkoursSection == null || !parkoursSection.contains(name)) {
-			p.sendMessage(ChatColor.RED + "The parkour '" + ChatColor.WHITE + name + ChatColor.RED + "' does not exist.");
-			return;
-		}
-		
-		parkour.getConfig().set("parkours." + name + ".spawn", p.getLocation());
-		parkour.saveConfig();
-		p.sendMessage(ChatColor.GREEN + "Successfully set the parkour spawn location for '" + ChatColor.WHITE + name + ChatColor.GREEN + "'.");
+	    ConfigurationSection parkoursSection = parkour.getConfig().getConfigurationSection("parkours");
+
+	    if (parkoursSection == null || !parkoursSection.contains(name)) {
+	        p.sendMessage(ChatColor.RED + "The parkour '" + ChatColor.WHITE + name + ChatColor.RED + "' does not exist.");
+	        return;
+	    }
+
+	    Location playerLocation = p.getLocation();
+
+	    // Floor the coordinates before saving
+	    Location flooredLocation = new Location(
+	        playerLocation.getWorld(),
+	        Math.floor(playerLocation.getX()),
+	        Math.floor(playerLocation.getY()),
+	        Math.floor(playerLocation.getZ()),
+	        playerLocation.getYaw(),
+	        playerLocation.getPitch()
+	    );
+
+	    parkour.getConfig().set("parkours." + name + ".spawn", flooredLocation);
+	    parkour.saveConfig();
+	    
+	    p.sendMessage(ChatColor.GREEN + "Successfully set the parkour spawn location for '" + ChatColor.WHITE + name + ChatColor.GREEN + "'.");
 	}
 
 	@Override
@@ -42,5 +56,9 @@ public class SetSpawnParkourCommand implements TabCompleter {
 	        }
 	    }
 	    return Collections.emptyList(); // Return an empty list to prevent default behavior (player names)
+	}
+	
+	public Location getSpawn(String parkourName) {
+		return parkour.getConfig().getLocation("parkours." + parkourName + ".spawn");
 	}
 }

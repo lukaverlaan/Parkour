@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -29,6 +31,19 @@ public class RemoveParkourCommand implements TabCompleter {
 			return;
 		}
 		p.sendMessage(ChatColor.RED + "Successfully removed the parkour '" + ChatColor.WHITE + name + ChatColor.RED + "'.");
+		
+		// Get the current set start/end pressure plates and remove them
+		Location startPlate = parkour.getConfig().getLocation("parkours." + name + ".start");
+		Location endPlate = parkour.getConfig().getLocation("parkours." + name + ".end");
+		if (startPlate != null) {
+			startPlate.getBlock().setType(Material.AIR);
+		}
+		
+		if (endPlate != null) {
+			endPlate.getBlock().setType(Material.AIR);
+		}
+		
+		// Remove parkour from the config
 		parkour.getConfig().set("parkours." + name, null);
 		parkour.saveConfig();
 	}

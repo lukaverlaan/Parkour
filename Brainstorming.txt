@@ -29,3 +29,14 @@ TO DO:
 - Move TabCompleters to single TabCompleter class
 - Make pressure plates unbreakable and delete when removing parkour
 - Add getters for spawn, start and end
+
+6th coding session - 27/03
+- Made sure pressure plates (and the block under) cannot be broken
+- Start/end blocks get removed when deleting parkour
+- Added getters
+
+TO DO:
+- Fix locations in config
+- StartUp, read config and build a Set<Block> from the locations
+- parkourPlates.contains(event.getClickedBlock()) inside of Action.PHYSICAL
+- Get new location for start and end but pitch and yaw 0
